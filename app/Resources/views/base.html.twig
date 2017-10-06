@@ -7,14 +7,24 @@
             {% stylesheets '@AppBundle/Resources/public/materialize/css/*'
                            '@AppBundle/Resources/public/materialize/fonts/*' %}
                 <link href="{{ asset_url }}" rel="stylesheet"/>
+                <style>
+                    body {
+                        display: flex;
+                        min-height: 100vh;
+                        flex-direction: column;
+                    }
+
+                    main {
+                        flex: 1 0 auto;
+                    }
+                </style>
             {% endstylesheets %}
         {% endblock %}
-        {# <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" /> #}
     </head>
     <body>
         <header>
             <nav>
-                <div class="nav-wrapper">
+                <div class="nav-wrapper indigo darken-2">
                     <a href="#" class="brand-logo">News Sources</a>
                 </div>
             </nav>
@@ -24,7 +34,7 @@
                 {% block body %}{% endblock %}
             </div>
         </main>
-        <footer class="page-footer">
+        <footer class="page-footer indigo darken-2">
             <div class='container'>
                 Powered by <a target='_blank' href="https://newsapi.org/">News API</a>.
             </div>

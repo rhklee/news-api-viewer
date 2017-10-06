@@ -23,14 +23,14 @@ $(document).ready(function(){
          url: '/news/getArticles',
          data: { newsId : newsSourceId },
          success: function(returnJson) {
-            $('ol#' + newsSourceId).empty();
+            $('div#' + newsSourceId).empty();
 
             for(i=0; i < returnJson.articles.length; i++){
-               $('ol#' + newsSourceId).append(
-                  "<li><a target='_blank' href='" + 
+               $('div#' + newsSourceId).append(
+                  "<a target='_blank' class='collection-item' href='" + 
                   returnJson.articles[i].url +
                   "'>" + returnJson.articles[i].title +
-                  "</a></li>"
+                  "</a>"
                );
             }
          },
