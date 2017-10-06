@@ -1,6 +1,6 @@
 <?php
    $container->setParameter('database_driver', null);
-   $container->setParameter('database_host', null;
+   $container->setParameter('database_host', null);
    $container->setParameter('database_port', null);
    $container->setParameter('database_name', null);
    $container->setParameter('database_user', null);
