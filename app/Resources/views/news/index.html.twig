@@ -1,0 +1,58 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+<div id='news-site-list'>
+   <div class='row'>
+      <div class='input-field col s6'>
+         <input  
+                type="text" 
+                class="fuzzy-search"
+                id='search-news' />
+         <label for='search-news'>search for news sites</label>
+      </div>
+   </div>
+   <ul class='collapsible list'>
+   {% for source in sources %}
+      <li>
+         <div class="collapsible-header">
+            <a href="{{source.url}}" target='_blank'>
+               <span class='flow-text newsSiteName'>{{source.name}}</span>
+            </a>
+         </div>
+         <div class="collapsible-body">
+            <div class='row'>
+               <div class='col s12'>
+                  <div class='flow-text'>Description:</div>
+                  {{source.description}}
+               </div>
+               <div class='flow-text col s6'>News Category: {{source.category}}</div>
+               <div class='flow-text col s6'>Country: {{source.country}}</div>
+            </div>
+            <div class='row'>
+               <div class='col s12'>
+                  <a href="#" id="{{source.id}}" class="sources">
+                     <span class='flow-text'>
+                        Most Recent articles from {{source.name}}
+                     </span>
+                  </a>
+                  <ol id="{{source.id}}"></ol>
+               </div>
+            </div>
+         </div>
+      </li>
+   {% endfor %}
+   </ul>
+</div>
+
+{% endblock %}
+
+{% block javascripts %}
+   {% javascripts 
+       '@AppBundle/Resources/public/js/jquery-3.2.1.min.js'
+       '@AppBundle/Resources/public/materialize/js/materialize.min.js'
+       '@AppBundle/Resources/public/js/list.min.js'
+       '@AppBundle/Resources/public/js/news-app.js' %}
+      <script src="{{asset_url}}"></script>
+   {% endjavascripts %}
+{% endblock %}

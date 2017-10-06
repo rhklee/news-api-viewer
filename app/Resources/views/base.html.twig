@@ -2,12 +2,33 @@
 <html>
     <head>
         <meta charset="UTF-8" />
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
-        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+        <title>{% block title %}News Sources{% endblock %}</title>
+        {% block stylesheets %}
+            {% stylesheets '@AppBundle/Resources/public/materialize/css/*'
+                           '@AppBundle/Resources/public/materialize/fonts/*' %}
+                <link href="{{ asset_url }}" rel="stylesheet"/>
+            {% endstylesheets %}
+        {% endblock %}
+        {# <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" /> #}
     </head>
     <body>
-        {% block body %}{% endblock %}
+        <header>
+            <nav>
+                <div class="nav-wrapper">
+                    <a href="#" class="brand-logo">News Sources</a>
+                </div>
+            </nav>
+        </header>
+        <main> 
+            <div class="container">   
+                {% block body %}{% endblock %}
+            </div>
+        </main>
+        <footer class="page-footer">
+            <div class='container'>
+                Powered by <a target='_blank' href="https://newsapi.org/">News API</a>.
+            </div>
+        </footer>
         {% block javascripts %}{% endblock %}
     </body>
 </html>

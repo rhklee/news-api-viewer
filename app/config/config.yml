@@ -70,3 +70,8 @@ assetic:
     use_controller: '%kernel.debug%'
     filters:
         cssrewrite: ~
+
+# ADDED service that can be injected into controller. Issues GET requests.
+services:
+    http:
+        class: AppBundle\Service\Http
